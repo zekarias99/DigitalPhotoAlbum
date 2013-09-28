@@ -1,0 +1,7 @@
+<h1> <%= @album.title %> 
+	|| <%= link_to 'edit', edit_album_path(@album) %> 
+	|| <%= link_to 'delete', @album, method: :delete, data: { confirm: "Are you sure you want to delete this album?" } %> </h1>
+<p> <%= @album.description %> </p>
+<p> <%= @album.formatted_date %> </p>
+<br>
+<%= link_to 'albums', albums_path %>

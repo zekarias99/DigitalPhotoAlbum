@@ -1,0 +1,37 @@
+header{
+	background-color: #F5F5F5;
+	nav{
+		ul{
+			margin: 0;
+			padding:15px;
+			li{
+				list-style-type: none;
+				display: inline-block;
+				margin-left: 5px;
+				font-size: 1.3em;
+			}
+		}
+	}
+}
+
+body{
+	margin:0;
+}
+
+#content{
+	margin:1%;
+}
+
+// flash messages
+.flash_error, .flash_success, .flash_notice{
+	font-size: 1.1em;
+}
+.flash_error{
+	color:FireBrick;
+}
+.flash_success{
+	color:ForestGreen;
+}
+.flash_notice{
+	color:Gold;
+}

@@ -1,7 +1,29 @@
-<h1> <%= @album.title %> 
-	|| <%= link_to 'edit', edit_album_path(@album) %> 
-	|| <%= link_to 'delete', @album, method: :delete, data: { confirm: "Are you sure you want to delete this album?" } %> </h1>
+<div class="inline_header">
+<h1> <%= @album.title %> </h1>
+	<h3><%= link_to 'edit', edit_album_path(@album) %> </h3>
+	<h3><%= link_to 'delete', @album, method: :delete, data: { confirm: "Are you sure you want to delete this album?" } %> </h3>
+</div>
+
+<%= form_for @album.pictures.build(), :url => album_path(@album) do |f| %>
+	<%= f.label :image, "Upload pictures:" %>
+	<%= f.file_field :image, multiple: true, name: "picture[image]" %>
+<% end %>
+
+<div id="progress">
+    <div class="bar" style="width: 0%;"></div>
+</div>
+
 <p> <%= @album.description %> </p>
-<p> <%= @album.formatted_date %> </p>
+<p> <%= formatted_date(@album.date) %> </p>
+
 <br>
+
+<section id="album_pictures">
+	<% @album.pictures.each do |picture| %>
+		<%= image_tag(picture.image_url(:miniature).to_s) if picture.image?  %>
+	<% end %>
+</section>
+
+
+
 <%= link_to 'albums', albums_path %>

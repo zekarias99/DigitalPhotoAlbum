@@ -1,0 +1,5 @@
+<% if @picture.new_record? %>
+  alert("Failed to upload picture: <%= j @picture.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#album_pictures").append("<%= j image_tag @picture.image_url(:miniature).to_s %>");
+<% end %>

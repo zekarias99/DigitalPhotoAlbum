@@ -3,10 +3,10 @@
 	<%= render partial: "shared/errors_messages", locals: {object: @album} %>
 
 	<%= f.label :title %> <br>
-	<%= f.text_field :title %> <br>
+	<%= f.text_field :title, :size => 41%> <br>
 
 	<%= f.label :description %> <br>
-	<%= f.text_area :description %> <br>
+	<%= f.text_area :description, :size => "30x4" %> <br>
 
 	<%= f.label :date %>
 	<%= f.date_select :date, default: Date.today, end_year: Date.today.year, start_year: 1964,discard_day: true  %> <br>
